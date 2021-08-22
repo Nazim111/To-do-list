@@ -26,7 +26,7 @@ body{
 	}
 
 	.center-column{
-		width:600px;
+		width:605px;
 		margin: 20px auto;
 		padding:15px;
 		background-color: #fff;
@@ -49,9 +49,19 @@ body{
 		border-color: #e59400;
 	}
 
+	.btn-info{
+		background-color:#6BA3E8;
+		border-color: #6BA3E8;
+		width: 100%;
+		padding: 5px 20px;
+		margin: 5px 0;
+		box-sizing: border-box;
+		border-radius: 5px;
+	}
+
 </style>
 <div class="center-column">
-    <p>Are you sure tou want to delete? "{{item}}"</p>
+    <p align="center" > <font size="5"> Are you sure to want to delete? <br>"{{item}}"</br></font> </p>
 
     <form method="POST" action="">
         {% csrf_token %}

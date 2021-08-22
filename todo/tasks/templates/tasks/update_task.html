@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 body{
@@ -8,8 +8,8 @@ body{
 
 	input{
 		width: 100%;
-		padding: 15px 20px;
-		margin: 5px 0;
+		padding: 20px 15px;
+		margin: 10px 0;
 		box-sizing: border-box;
 		border-radius: 5px;
 	}
@@ -26,41 +26,78 @@ body{
 	}
 
 	.center-column{
-		width:600px;
+		width:605px;
 		margin: 20px auto;
 		padding:15px;
 		background-color: #fff;
-		border-radius: 30px;
+		border-radius: 20px;
+		font-size: 20px;
 		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
 	}
 
 	.item-row{
 		background-color: #906abd;
 		margin: 5px;
-		padding: 20px;
-		border-radius: 10px;
+		padding: 15px 20px;
+		border-radius: 20px;
 		color: #fff;
-		font-size: 18px;
+		font-size: 20px;
 		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
 	}
 
 	.btn-danger{
 		background-color: #ffae19;
 		border-color: #e59400;
+		width: 100%;
+		padding: 5px 20px;
+		margin: 5px 0;
+		box-sizing: border-box;
+		border-radius: 5px;
 	}
+
+	.btn-info{
+		background-color:#6BA3E8;
+		border-color: #6BA3E8;
+		width: 100%;
+		padding: 5px 20px;
+		margin: 5px 0;
+		box-sizing: border-box;
+		border-radius: 5px;
+	}
+
+
+	.description{
+		width:500px;
+		margin: 50px auto;
+		padding:15px;
+		background-color: #fff;
+		border-radius: 30px;
+		font-size: 20px;
+	}
+
 
 </style>
 
 <div class="center-column">
 
+
     <form method="POST" action="">
                 {% csrf_token %}
-                {{ form }}
-        <div class="Update task">
-            <div class="item-row">
-                <input class="btn btn-sm btn-danger" type="submit" name="Update Task" value="Update">
-                <a class="btn btn-sm btn-info" href="{% url 'list' %}"> Cancel</a>
+                {{ form.title }}
+                {{ form.description }}
+
+        <br>
+                {{ form.complete }}
+        <br>
+
+
+            <div class="Update task">
+                <div class="item-row">
+
+                    <input class="btn btn-sm btn-danger" type="submit" name="Update Task" value="Update">
+                    <a class="btn btn-sm btn-info" href="{% url 'list' %}"> Cancel</a>
+
+                </div>
             </div>
-        </div>
     </form>
 </div>

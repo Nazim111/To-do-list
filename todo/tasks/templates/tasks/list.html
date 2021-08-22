@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 body{
@@ -8,7 +8,7 @@ body{
 
 	input{
 		width: 100%;
-		padding: 15px 20px;
+		padding: 20px 15px;
 		margin: 5px 0;
 		box-sizing: border-box;
 		border-radius: 5px;
@@ -26,11 +26,11 @@ body{
 	}
 
 	.center-column{
-		width:600px;
+		width:605px;
 		margin: 20px auto;
 		padding:15px;
 		background-color: #fff;
-		border-radius: 30px;
+		border-radius: 20px;
 		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
 	}
 
@@ -38,7 +38,7 @@ body{
 		background-color: #906abd;
 		margin: 10px;
 		padding: 20px;
-		border-radius: 10px;
+		border-radius: 20px;
 		color: #fff;
 		font-size: 18px;
 		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
@@ -47,6 +47,21 @@ body{
 	.btn-danger{
 		background-color: #ffae19;
 		border-color: #e59400;
+		padding: 8px 8px;
+		margin: 5px 0;
+		box-sizing: border-box;
+		border-radius: 5px;
+
+	}
+
+	.btn-task{
+		background-color: #906abd;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 10px;
+		color: #fff;
+		font-size: 18px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
 	}
 
 </style>
@@ -60,18 +75,20 @@ body{
 	</form>
 
 	<div class="Todo-list">
-
-	{% for task in tasks %}
-		<div class="item-row">
-			<a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-			<a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
-
-			{% if task.complete == True %}
-			<strike>{{task}}</strike>
-			{% else %}
-			<span>{{task}}</span>
-			{% endif %}
-		</div>
-	{% endfor %}
+		{% for task in tasks %}
+			<div class="item-row" >
+				<a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}"><i class="fa fa-trash"></i></a>
+				<a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">
+					{% if task.complete == True %}
+					<strike>{{task}}</strike>
+					{% else %}
+					<span>{{task}}</span>
+					{% endif %}
+				</a>
+			</div>
+		{% endfor %}
 	</div>
 </div>
+
+
+
